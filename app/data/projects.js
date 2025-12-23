@@ -4,7 +4,7 @@ export const projects = [
     title: 'E-Commerce Platform',
     description:
       'A full-stack e-commerce solution with payment integration, inventory management, and real-time order tracking.',
-    tech: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe', 'Tailwind CSS'],
+    tech: ['Next.js', 'Typescript', 'MongoDB', 'Stripe', 'Tailwind CSS'],
     github: 'https://github.com/yourusername/project1',
     live: 'https://project1.demo.com',
     icon: '🛒',
@@ -34,7 +34,7 @@ export const projects = [
     title: 'Real-time Chat Application',
     description:
       'Feature-rich messaging app with end-to-end encryption, file sharing, and video calling capabilities.',
-    tech: ['React', 'WebRTC', 'Firebase', 'Node.js', 'WebSocket'],
+    tech: ['React', 'WebRTC', 'NextAuth', 'Node.js', 'WebSocket'],
     github: 'https://github.com/yourusername/project4',
     live: 'https://project4.demo.com',
     icon: '💬',
@@ -44,7 +44,7 @@ export const projects = [
     title: 'AI Content Generator',
     description:
       'AI-powered tool for generating marketing content, blog posts, and social media captions using GPT integration.',
-    tech: ['Next.js', 'OpenAI API', 'Prisma', 'PostgreSQL', 'Vercel'],
+    tech: ['Next.js', 'Gemini API', 'Prisma', 'MongoDB', 'Vercel'],
     github: 'https://github.com/yourusername/project5',
     live: 'https://project5.demo.com',
     icon: '🤖',

@@ -2,54 +2,61 @@
 
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import { 
-  Code2, 
-  Triangle, 
-  FileCode, 
-  Box, 
-  Palette, 
-  FileText,
-  Circle,
-  FileCode2,
-  Server,
-  Database,
-  Leaf,
-  Plug,
-  GitBranch,
-  Container,
-  Monitor,
-  Figma,
-  Cloud,
-  Terminal
-} from 'lucide-react';
+import Image from 'next/image';
+
+// Function to convert hex color to CSS filter
+const getColorFilter = (hexColor) => {
+  // Color mapping for common brand colors to CSS filters
+  const colorMap = {
+    '#61DAFB': 'invert(70%) sepia(52%) saturate(2878%) hue-rotate(157deg) brightness(119%) contrast(119%)', // React blue
+    '#000000': 'invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%)', // Black
+    '#F7DF1E': 'invert(85%) sepia(78%) saturate(2476%) hue-rotate(21deg) brightness(118%) contrast(115%)', // JavaScript yellow
+    '#3178C6': 'invert(47%) sepia(59%) saturate(1945%) hue-rotate(213deg) brightness(97%) contrast(86%)', // TypeScript blue
+    '#06B6D4': 'invert(71%) sepia(77%) saturate(1968%) hue-rotate(152deg) brightness(103%) contrast(107%)', // Tailwind cyan
+    '#E34F26': 'invert(55%) sepia(93%) saturate(1378%) hue-rotate(2deg) brightness(119%) contrast(119%)', // HTML orange
+    '#339933': 'invert(60%) sepia(59%) saturate(1969%) hue-rotate(103deg) brightness(118%) contrast(115%)', // Node.js green
+    '#3776AB': 'invert(47%) sepia(68%) saturate(1945%) hue-rotate(213deg) brightness(81%) contrast(86%)', // Python blue
+    '#4479A1': 'invert(47%) sepia(68%) saturate(1945%) hue-rotate(213deg) brightness(81%) contrast(86%)', // MySQL blue
+    '#47A248': 'invert(60%) sepia(59%) saturate(1969%) hue-rotate(103deg) brightness(118%) contrast(115%)', // MongoDB green
+    '#FF6B35': 'invert(55%) sepia(93%) saturate(1378%) hue-rotate(2deg) brightness(119%) contrast(119%)', // REST API orange
+    '#F05032': 'invert(55%) sepia(93%) saturate(1378%) hue-rotate(2deg) brightness(119%) contrast(119%)', // Git red
+    '#181717': 'invert(10%) sepia(15%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(95%)', // GitHub dark
+    '#2496ED': 'invert(47%) sepia(68%) saturate(1945%) hue-rotate(213deg) brightness(81%) contrast(86%)', // Docker blue
+    '#FF6C37': 'invert(55%) sepia(93%) saturate(1378%) hue-rotate(2deg) brightness(119%) contrast(119%)', // Postman orange
+    '#F24E1E': 'invert(55%) sepia(93%) saturate(1378%) hue-rotate(2deg) brightness(119%) contrast(119%)', // Figma orange
+    '#FF9900': 'invert(85%) sepia(78%) saturate(2476%) hue-rotate(21deg) brightness(118%) contrast(115%)', // AWS orange
+  };
+  
+  return colorMap[hexColor] || 'invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)';
+};
 
 export default function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState(null);
 
   const skillsData = {
     FRONTEND: [
-      { name: 'REACT', level: 95, icon: Code2, color: '#61DAFB' },
-      { name: 'NEXT.JS', level: 90, icon: Triangle, color: '#000000' },
-      { name: 'JAVASCRIPT', level: 92, icon: FileCode, color: '#F7DF1E' },
-      { name: 'TYPESCRIPT', level: 88, icon: Box, color: '#3178C6' },
-      { name: 'TAILWIND', level: 95, icon: Palette, color: '#06B6D4' },
-      { name: 'HTML/CSS', level: 98, icon: FileText, color: '#E34F26' },
+      { name: 'REACT', level: 95, icon: '/skills/React.svg', color: '#61DAFB' },
+      { name: 'NEXT.JS', level: 90, icon: '/skills/nextjs.svg', color: '#000000' },
+      { name: 'JAVASCRIPT', level: 92, icon: '/skills/Js.svg', color: '#F7DF1E' },
+      { name: 'TYPESCRIPT', level: 88, icon: '/skills/ts.svg', color: '#3178C6' },
+      { name: 'TAILWIND', level: 95, icon: '/skills/tailwindcss.svg', color: '#06B6D4' },
+      { name: 'HTML/CSS', level: 98, icon: '/skills/HTML.svg', color: '#E34F26' },
     ],
     BACKEND: [
-      { name: 'NODE.JS', level: 90, icon: Circle, color: '#339933' },
-      { name: 'PYTHON', level: 85, icon: FileCode2, color: '#3776AB' },
-      { name: 'EXPRESS', level: 88, icon: Server, color: '#000000' },
-      { name: 'MYSQL', level: 82, icon: Database, color: '#4479A1' },
-      { name: 'MONGODB', level: 85, icon: Leaf, color: '#47A248' },
-      { name: 'REST API', level: 92, icon: Plug, color: '#FF6B35' },
+      { name: 'NODE.JS', level: 90, icon: '/skills/Nodejs.svg', color: '#339933' },
+      { name: 'PYTHON', level: 85, icon: '/skills/python.svg', color: '#3776AB' },
+      { name: 'EXPRESS', level: 88, icon: '/skills/express-js.svg', color: '#000000' },
+      { name: 'MYSQL', level: 82, icon: '/skills/sql.svg', color: '#4479A1' },
+      { name: 'MONGODB', level: 85, icon: '/skills/mongodb.svg', color: '#47A248' },
+      { name: 'REST API', level: 92, icon: '/skills/restapi.svg', color: '#FF6B35' },
     ],
     TOOLS: [
-      { name: 'GIT', level: 90, icon: GitBranch, color: '#F05032' },
-      { name: 'DOCKER', level: 80, icon: Container, color: '#2496ED' },
-      { name: 'VS CODE', level: 95, icon: Monitor, color: '#007ACC' },
-      { name: 'FIGMA', level: 85, icon: Figma, color: '#F24E1E' },
-      { name: 'AWS', level: 75, icon: Cloud, color: '#FF9900' },
-      { name: 'LINUX', level: 82, icon: Terminal, color: '#FCC624' },
+      { name: 'GIT', level: 90, icon: '/skills/git.svg', color: '#F05032' },
+      { name: 'GITHUB', level: 88, icon: '/skills/GitHub.svg', color: '#181717' },
+      { name: 'DOCKER', level: 80, icon: '/skills/Docker.svg', color: '#2496ED' },
+      { name: 'POSTMAN', level: 95, icon: '/skills/Postman.svg', color: '#FF6C37' },
+      { name: 'FIGMA', level: 85, icon: '/skills/Figma.svg', color: '#FFB6C1' },
+      { name: 'AWS CLOUD', level: 75, icon: '/skills/aws.svg', color: '#FF6C37' },
     ],
   };
 
@@ -58,31 +65,31 @@ export default function Skills() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+        staggerChildren: 0.06,
+        delayChildren: 0.1,
       },
     },
   };
 
   const categoryVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 25 },
     visible: {
       opacity: 1,
       y: 0,
       transition: { 
-        duration: 0.6,
+        duration: 0.4,
         ease: [0.25, 0.1, 0.25, 1.0]
       },
     },
   };
 
   const skillPillVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: { 
-        duration: 0.4,
+        duration: 0.25,
         ease: [0.68, -0.6, 0.32, 1.6]
       },
     },
@@ -132,7 +139,7 @@ export default function Skills() {
               {/* Skills Pill Grid */}
               <motion.div 
                 variants={containerVariants}
-                className="grid grid-cols-2 gap-3"
+                className="grid grid-cols-3 md:grid-cols-2 gap-3"
               >
                 {skills.map((skill, index) => {
                   const skillKey = `${category}-${skill.name}`;
@@ -165,11 +172,31 @@ export default function Skills() {
                         />
                         
                         {/* Content */}
-                        <div className="relative z-10 flex items-center space-x-2">
-                          <div className="text-lg group-hover:scale-110 transition-transform">
-                            <skill.icon size={18} />
-                          </div>
-                          <div className="min-w-0 flex-1">
+                        <div className="relative z-10 flex items-center justify-center md:justify-start md:space-x-2">
+                          <motion.div 
+                            className="group-hover:scale-110 transition-transform flex items-center justify-center"
+                            animate={{
+                              scale: isHovered ? 1.1 : 1
+                            }}
+                            transition={{ duration: 0.3 }}
+                            style={{
+                              filter: isHovered 
+                                ? 'brightness(0) invert(1)' 
+                                : 'none'
+                            }}
+                          >
+                            <Image
+                              src={skill.icon}
+                              alt={skill.name}
+                              width={18}
+                              height={18}
+                              className="w-[18px] h-[18px] object-contain"
+                              style={{
+                                filter: !isHovered ? `brightness(0) saturate(100%) ${getColorFilter(skill.color)}` : 'none'
+                              }}
+                            />
+                          </motion.div>
+                          <div className="min-w-0 flex-1 hidden md:block">
                             <motion.div
                               animate={{
                                 color: isHovered ? "#f8fafc" : "#0f172a"

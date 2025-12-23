@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
+import { Eye } from 'lucide-react';
 import { projects } from '../data/projects';
 
 export default function HomeProjects() {
@@ -123,7 +124,20 @@ export default function HomeProjects() {
             whileTap={{ scale: 0.95 }}
             className="bg-slate-900 hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-full text-lg shadow-lg hover:shadow-slate-900/30 transition-all duration-300 group"
           >
-            <span className="mr-2">🚀</span>
+            <motion.span 
+              className="mr-2 inline-block"
+              animate={{
+                scale: [1, 1.08, 1],
+                rotate: [0, 3, -3, 0]
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <Eye size={20} />
+            </motion.span>
             View All Projects
             <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
           </motion.button>

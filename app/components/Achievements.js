@@ -1,82 +1,53 @@
 'use client';
 
 import { motion } from 'motion/react';
+import { Trophy, Code, Star, Wrench } from 'lucide-react';
 
 export default function Achievements() {
-//   const certifications = [
-//     {
-//       title: 'AWS Certified Solutions Architect',
-//       issuer: 'Amazon Web Services',
-//       date: '2023',
-//       icon: '☁️',
-//       color: 'from-orange-500 to-yellow-500',
-//     },
-//     {
-//       title: 'Meta Front-End Developer',
-//       issuer: 'Meta',
-//       date: '2023',
-//       icon: '⚛️',
-//       color: 'from-blue-500 to-cyan-500',
-//     },
-//     {
-//       title: 'Google Cloud Professional',
-//       issuer: 'Google',
-//       date: '2022',
-//       icon: '🌐',
-//       color: 'from-red-500 to-pink-500',
-//     },
-//     {
-//       title: 'MongoDB Certified Developer',
-//       issuer: 'MongoDB University',
-//       date: '2022',
-//       icon: '🍃',
-//       color: 'from-green-500 to-emerald-500',
-//     },
-//   ];
 
-  const awards = [
-    {
-      title: 'Best Developer Award 2023',
-      organization: 'Tech Innovations Inc.',
-      description: 'Recognized for outstanding performance and innovation',
-      icon: '🏆',
-    },
-    {
-      title: 'Hackathon Winner',
-      organization: 'Global Dev Hackathon',
-      description: 'First place in web development category',
-      icon: '🥇',
-    },
-    {
-      title: 'Open Source Contributor',
-      organization: 'GitHub',
-      description: '500+ contributions to popular open-source projects',
-      icon: '⭐',
-    },
-    {
-      title: 'Tech Speaker',
-      organization: 'Developer Conferences',
-      description: 'Presented at 5+ tech conferences and meetups',
-      icon: '🎤',
-    },
-  ];
+const awards = [
+  {
+    title: 'Cloud Quest Hackathon Winner',
+    organization: 'AWS / Cloud Provider Event',
+    description: 'Developed a high-availability system using EC2 instances, CloudWatch for real-time monitoring, and S3 for secure data storage.',
+    icon: <Trophy size={28} />,
+  },
+  {
+    title: 'Algorithm Specialist',
+    organization: 'LeetCode',
+    description: 'Solved 100+ problems across DP, Graphs, and Data Structures.',
+    icon: <Code size={28} />,
+  },
+  {
+    title: 'Open Source Contributor',
+    organization: 'GitHub',
+    description: 'Active contributor to popular projects, improving code quality and features.',
+    icon: <Star size={28} />,
+  },
+  {
+    title: 'Full-Stack Developer',
+    organization: 'Portfolio & Open Source',
+    description: 'Designed and developed robust end-to-end web applications.',
+    icon: <Wrench size={28} />,
+  },
+];
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
+    hidden: { opacity: 0, scale: 0.95 },
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.5 },
+      transition: { duration: 0.3 },
     },
   };
 

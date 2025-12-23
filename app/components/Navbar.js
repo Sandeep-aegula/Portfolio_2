@@ -15,9 +15,7 @@ export default function Navbar() {
       return [
         { label: 'Home', href: '/#home' },
         { label: 'About', href: '/#about' },
-        { label: 'Skills', href: '/#skills' },
         { label: 'Projects', href: '/Projects' },
-        { label: 'Achievements', href: '/#achievements' },
         { label: 'Contact', href: '/#contact' }
       ];
     } else {
@@ -25,9 +23,7 @@ export default function Navbar() {
       return [
         { label: 'Home', href: '#home' },
         { label: 'About', href: '#about' },
-        { label: 'Skills', href: '#skills' },
         { label: 'Projects', href: '#projects' },
-        { label: 'Achievements', href: '#achievements' },
         { label: 'Contact', href: '#contact' }
       ];
     }

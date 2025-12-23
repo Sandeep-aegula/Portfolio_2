@@ -12,44 +12,44 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
       },
     },
   };
 
   const heroVariants = {
-    hidden: { opacity: 0, y: 60, scale: 0.95 },
+    hidden: { opacity: 0, y: 40, scale: 0.98 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.5,
         ease: [0.25, 0.1, 0.25, 1.0]
       },
     },
   };
 
   const statVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: [0.25, 0.1, 0.25, 1.0]
       },
     },
   };
 
   const pillButtonVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
         ease: [0.68, -0.6, 0.32, 1.6]
       },
     },
@@ -76,9 +76,9 @@ export default function Home() {
             >
               <motion.h1
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#060010] mb-6 tracking-tight"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
               >
                 AEGULA SANDEEP
               </motion.h1>
@@ -86,7 +86,7 @@ export default function Home() {
                 className="text-lg sm:text-xl md:text-2xl text-slate-700 mb-4 font-semibold tracking-wide"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.7, duration: 0.8 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
               >
                 FULL-STACK DEVELOPER & UI/UX DESIGNER
               </motion.div>
@@ -94,7 +94,7 @@ export default function Home() {
                 className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.9, duration: 0.8 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
               >
                 Building modern, scalable web applications with clean code and beautiful design
               </motion.p>
@@ -145,7 +145,7 @@ export default function Home() {
                 {/* Social Media Icons Section */}
                 <div className="flex items-center justify-center lg:justify-start gap-4">
                   <motion.a
-                    href="https://github.com/yourusername"
+                    href="https://github.com/Sandeep-aegula"
                     target="_blank"
                     rel="noopener noreferrer"
                     variants={statVariants}
@@ -156,7 +156,7 @@ export default function Home() {
                     <Github size={28} />
                   </motion.a>
                   <motion.a
-                    href="https://linkedin.com/in/yourusername"
+                    href="https://linkedin.com/in/Sandeep-aegula"
                     target="_blank"
                     rel="noopener noreferrer"
                     variants={statVariants}
@@ -167,7 +167,7 @@ export default function Home() {
                     <Linkedin size={28} />
                   </motion.a>
                   <motion.a
-                    href="https://twitter.com/yourusername"
+                    href="https://x.com/yourusername"
                     target="_blank"
                     rel="noopener noreferrer"
                     variants={statVariants}
@@ -175,10 +175,12 @@ export default function Home() {
                     whileTap={{ scale: 0.9 }}
                     className="text-slate-400 hover:text-blue-500 transition-colors duration-300"
                   >
-                    <Twitter size={28} />
+                     <svg width={20} height={20} viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
                   </motion.a>
                   <motion.a
-                    href="mailto:your.email@example.com"
+                    href="mailto:aegulasandeep@gmail.com"
                     variants={statVariants}
                     whileHover={{ scale: 1.2, y: -5 }}
                     whileTap={{ scale: 0.9 }}
@@ -193,9 +195,9 @@ export default function Home() {
 
           {/* Right Side - Lottie Animation */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
             className="hidden lg:flex justify-center lg:justify-end"
           >
             <div className="w-full max-w-lg aspect-square">

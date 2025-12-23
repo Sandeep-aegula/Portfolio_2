@@ -1,23 +1,26 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import About from './components/About';
-import Skills from './components/Skills';
-import HomeProjects from './components/HomeProjects';
-import Achievements from './components/Achievements';
-import Contact from './components/Contact';
+
+// Lazy load non-critical components
+const About = lazy(() => import('./components/About'));
+const Skills = lazy(() => import('./components/Skills'));
+const HomeProjects = lazy(() => import('./components/HomeProjects'));
+const Achievements = lazy(() => import('./components/Achievements'));
+const Contact = lazy(() => import('./components/Contact'));
+const PixelSnow = lazy(() => import('./components/PixelSnow'));
+
 import Loader from './components/Loader';
-import PixelSnow from './components/PixelSnow';
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate page loading
+    // Reduce loading time for faster initial render
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -27,29 +30,47 @@ export default function Page() {
   }
   return (
     <main className="bg-[#060010] text-slate-50 min-h-screen selection:bg-blue-500/30 overflow-x-hidden relative">
-      {/* Pixel Snow Background Animation */}
-      <PixelSnow
-        color="#ffffff"
-        flakeSize={0.008}
-        minFlakeSize={1.0}
-        pixelResolution={300}
-        speed={0.8}
-        density={0.15}
-        direction={125}
-        brightness={0.6}
-        className="pointer-events-none"
-        style={{ zIndex: 0 }}
-      />
+      {/* Pixel Snow Background Animation - Lazy loaded */}
+      <Suspense fallback={<div />}>
+        <PixelSnow
+          color="#ffffff"
+          flakeSize={0.006}
+          minFlakeSize={0.8}
+          pixelResolution={250}
+          speed={0.6}
+          density={0.10}
+          direction={125}
+          brightness={0.5}
+          className="pointer-events-none"
+          style={{ zIndex: 0 }}
+        />
+      </Suspense>
       
       {/* Main Content */}
       <div className="relative z-10">
         <Navbar />
         <Home />
-        <About />
-        <Skills />
-        <HomeProjects />
-        <Achievements />
-        <Contact />
+        
+        {/* Lazy load below-the-fold components */}
+        <Suspense fallback={<div className="h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div></div>}>
+          <About />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div></div>}>
+          <Skills />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div></div>}>
+          <HomeProjects />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div></div>}>
+          <Achievements />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div></div>}>
+          <Contact />
+        </Suspense>
         
         <footer className="py-16 border-t border-slate-200">
           <div className="max-w-6xl mx-auto px-4">

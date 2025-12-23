@@ -30,17 +30,17 @@ export default function Contact() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.4 },
     },
   };
 
@@ -59,11 +59,11 @@ export default function Contact() {
         {/* Section Title */}
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
-            Let's <span className="text-blue-500">Connect</span>
+            Let&apos;s <span className="text-blue-500">Connect</span>
           </h2>
           <div className="w-20 h-1 bg-slate-600 mx-auto rounded-full"></div>
           <p className="text-slate-600 mt-4 text-lg">
-            Let's work together to bring your ideas to life
+            Let&apos;s work together to bring your ideas to life
           </p>
         </motion.div>
 
@@ -72,20 +72,9 @@ export default function Contact() {
           <motion.div variants={itemVariants} className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
             {/* Social Media Section */}
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Get In Touch</h3>
-              <div className="flex items-center justify-center space-x-4 mb-6">
-                <div className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white">
-                  <Mail size={20} />
-                </div>
-                <div className="text-left">
-                  <p className="text-slate-600 text-sm">Email</p>
-                  <p className="text-slate-900 font-semibold">aegulasandeep@gmail.com</p>
-                </div>
-              </div>
-
+             
               {/* Social Media Icons */}
               <div className="mb-8">
-                <p className="text-slate-600 text-sm mb-4">Follow me on</p>
                 <div className="flex justify-center space-x-4">
                   <motion.a
                     href="https://github.com/yourusername"
@@ -115,7 +104,19 @@ export default function Contact() {
                     whileTap={{ scale: 0.9 }}
                     className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors duration-300"
                   >
-                    <Twitter size={20} />
+                    <svg width={20} height={20} viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </motion.a>
+                  <motion.a
+                   href="mailto:aegulasandeep@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.2, y: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors duration-300"
+                  >
+                    <Mail size={20} />
                   </motion.a>
                 </div>
               </div>
@@ -126,7 +127,6 @@ export default function Contact() {
 
             {/* 3D Animation Section */}
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Let's Connect</h3>
               <p className="text-slate-600">Ready to collaborate and create something amazing together</p>
             </div>
             
