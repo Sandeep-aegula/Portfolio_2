@@ -1,7 +1,7 @@
 'use client';
 
 import { LazyMotion, domAnimation, m } from 'motion/react';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import Image from 'next/image';
 
 // Function to convert hex color to CSS filter
@@ -30,7 +30,7 @@ const getColorFilter = (hexColor) => {
   return colorMap[hexColor] || 'invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)';
 };
 
-export default function Skills() {
+function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState(null);
 
   const skillsData = {
@@ -257,3 +257,5 @@ export default function Skills() {
     </LazyMotion>
   );
 }
+
+export default memo(Skills);

@@ -20,7 +20,7 @@ export default function Page() {
     // Reduce loading time for faster initial render
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, process.env.NODE_ENV === 'production' ? 800 : 1500); // Faster in production
 
     return () => clearTimeout(timer);
   }, []);
@@ -30,17 +30,17 @@ export default function Page() {
   }
   return (
     <main className="bg-[#060010] text-slate-50 min-h-screen selection:bg-blue-500/30 overflow-x-hidden relative">
-      {/* Pixel Snow Background Animation - Lazy loaded */}
+      {/* Pixel Snow Background Animation - Optimized for production */}
       <Suspense fallback={<div />}>
         <PixelSnow
           color="#ffffff"
-          flakeSize={0.006}
-          minFlakeSize={0.8}
-          pixelResolution={250}
-          speed={0.6}
-          density={0.10}
+          flakeSize={0.008} // Slightly larger for better performance
+          minFlakeSize={1.2}
+          pixelResolution={process.env.NODE_ENV === 'production' ? 150 : 250} // Reduce quality in production
+          speed={0.4} // Slower for better performance
+          density={process.env.NODE_ENV === 'production' ? 0.05 : 0.10} // Reduce density in production
           direction={125}
-          brightness={0.5}
+          brightness={0.3} // Dimmer for less GPU load
           className="pointer-events-none"
           style={{ zIndex: 0 }}
         />

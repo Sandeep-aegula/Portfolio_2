@@ -132,7 +132,27 @@ void main() {
 }
 `;
 
-export default function PixelSnow({
+// Performance detection utility
+const getDevicePerformance = () => {
+  const canvas = document.createElement('canvas');
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  
+  if (!gl) return 'low';
+  
+  const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+  const renderer = debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : '';
+  
+  // Check for mobile/low-end devices
+  const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isLowEnd = renderer.includes('Adreno') || renderer.includes('Mali') || renderer.includes('PowerVR');
+  
+  if (isMobile || isLowEnd) return 'low';
+  if (navigator.hardwareConcurrency <= 4) return 'medium';
+  
+  return 'high';
+};
+
+function PixelSnow({
   color = '#ffffff',
   flakeSize = 0.01,
   minFlakeSize = 1.25,
@@ -157,14 +177,23 @@ export default function PixelSnow({
 
     const scene = new Scene();
     const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    const performance = getDevicePerformance();
+    
+    // Adjust settings based on device performance
+    const optimizedSettings = {
+      high: { pixelRatio: Math.min(window.devicePixelRatio, 2), antialias: true },
+      medium: { pixelRatio: 1, antialias: false },
+      low: { pixelRatio: 0.5, antialias: false }
+    }[performance];
+
     const renderer = new WebGLRenderer({
-      antialias: false,
+      antialias: optimizedSettings.antialias,
       alpha: true,
       premultipliedAlpha: false,
-      powerPreference: 'high-performance'
+      powerPreference: performance === 'low' ? 'low-power' : 'high-performance'
     });
 
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(optimizedSettings.pixelRatio);
     renderer.setSize(container.offsetWidth, container.offsetHeight);
     renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
@@ -204,9 +233,17 @@ export default function PixelSnow({
     window.addEventListener('resize', handleResize);
 
     const startTime = performance.now();
-    const animate = () => {
+    let lastTime = 0;
+    const targetFPS = performance === 'low' ? 30 : 60;
+    const frameInterval = 1000 / targetFPS;
+    
+    const animate = (currentTime) => {
       animationRef.current = requestAnimationFrame(animate);
-      material.uniforms.uTime.value = (performance.now() - startTime) * 0.001;
+      
+      if (currentTime - lastTime < frameInterval) return;
+      lastTime = currentTime;
+      
+      material.uniforms.uTime.value = (currentTime - startTime) * 0.001;
       renderer.render(scene, camera);
     };
     animate();
@@ -241,3 +278,5 @@ export default function PixelSnow({
       style={style} />
   );
 }
+
+export default memo(PixelSnow);

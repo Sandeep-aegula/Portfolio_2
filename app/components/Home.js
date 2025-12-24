@@ -1,11 +1,11 @@
 'use client';
 
 import { LazyMotion, domAnimation, m } from 'motion/react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, memo, useMemo } from 'react';
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-export default function Home() {
+function Home() {
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -187,20 +187,22 @@ export default function Home() {
               </m.div>
             </m.div>
 
-            {/* Right Side - Lottie Animation */}
+            {/* Right Side - Optimized Lottie Animation */}
             <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
+              transition={{ delay: 0.1, duration: 0.4 }} // Faster animation
               className="hidden lg:flex justify-center lg:justify-end"
             >
             <div className="w-full max-w-lg aspect-square">
               <DotLottieReact
-                src="https://lottie.host/db72876d-efca-41c7-8ea8-102e4b8a37ca/6Y2M86e4Vf.lottie"
-                loop
+                src="/Home_Page_Animation.lottie"
+                loop={process.env.NODE_ENV !== 'production'} // Only loop in development
                 autoplay
                 className="w-full h-full"
+                speed={process.env.NODE_ENV === 'production' ? 0.8 : 1} // Slower in production for better performance
               />
+              
             </div>
           </m.div>
         </div>
@@ -209,3 +211,5 @@ export default function Home() {
     </LazyMotion>
   );
 }
+
+export default memo(Home);

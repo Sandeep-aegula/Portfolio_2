@@ -2,10 +2,11 @@
 
 import { LazyMotion, domAnimation, m } from 'motion/react';
 import { useRouter } from 'next/navigation';
+import { memo } from 'react';
 import { Eye } from 'lucide-react';
 import { projects } from '../data/projects';
 
-export default function HomeProjects() {
+function HomeProjects() {
   const router = useRouter();
   
   // Show only first 3 projects
@@ -137,3 +138,5 @@ export default function HomeProjects() {
     </LazyMotion>
   );
 }
+
+export default memo(HomeProjects);

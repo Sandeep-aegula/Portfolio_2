@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback, memo } from 'react';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 
@@ -122,27 +122,27 @@ const PillNav = ({
     return () => window.removeEventListener('resize', onResize);
   }, [items, ease, initialLoadAnimation]);
 
-  const handleEnter = i => {
+  const handleEnter = useCallback((i) => {
     const tl = tlRefs.current[i];
     if (!tl) return;
     activeTweenRefs.current[i]?.kill();
     activeTweenRefs.current[i] = tl.tweenTo(tl.duration(), {
-      duration: 0.3,
+      duration: 0.2, // Reduce duration for better performance
       ease,
       overwrite: 'auto'
     });
-  };
+  }, [ease]);
 
-  const handleLeave = i => {
+  const handleLeave = useCallback((i) => {
     const tl = tlRefs.current[i];
     if (!tl) return;
     activeTweenRefs.current[i]?.kill();
     activeTweenRefs.current[i] = tl.tweenTo(0, {
-      duration: 0.2,
+      duration: 0.15, // Reduce duration for better performance
       ease,
       overwrite: 'auto'
     });
-  };
+  }, [ease]);
 
   const handleLogoEnter = () => {
     const img = logoImgRef.current;
@@ -442,4 +442,4 @@ const PillNav = ({
   );
 };
 
-export default PillNav;
+export default memo(PillNav);

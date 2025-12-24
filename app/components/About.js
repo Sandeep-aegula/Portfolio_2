@@ -1,9 +1,10 @@
 'use client';
 
 import { LazyMotion, domAnimation, m } from 'motion/react';
+import { memo } from 'react';
 import Image from 'next/image';
 
-export default function About() {
+function About() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -292,3 +293,5 @@ export default function About() {
     </LazyMotion>
   );
 }
+
+export default memo(About);
