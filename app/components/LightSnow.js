@@ -12,19 +12,28 @@ export default function LightSnow({
   const [snowflakes, setSnowflakes] = useState([]);
 
   useEffect(() => {
-    // Generate snowflakes
-    const flakes = [];
-    for (let i = 0; i < density; i++) {
-      flakes.push({
-        id: i,
-        left: Math.random() * 100,
-        animationDuration: Math.random() * 3 + 2,
-        opacity: Math.random() * 0.6 + 0.4,
-        fontSize: Math.random() * 10 + 10,
-        animationDelay: Math.random() * 2,
-      });
+    if (density === 0) {
+      setSnowflakes([]);
+      return;
     }
-    setSnowflakes(flakes);
+    
+    const generateSnowflakes = () => {
+      // Generate snowflakes
+      const flakes = [];
+      for (let i = 0; i < density; i++) {
+        flakes.push({
+          id: i,
+          left: Math.random() * 100,
+          animationDuration: Math.random() * 3 + 2,
+          opacity: Math.random() * 0.6 + 0.4,
+          fontSize: Math.random() * 10 + 10,
+          animationDelay: Math.random() * 2,
+        });
+      }
+      return flakes;
+    };
+    
+    setSnowflakes(generateSnowflakes());
   }, [density]);
 
   return (

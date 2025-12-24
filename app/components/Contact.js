@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { LazyMotion, domAnimation, m } from 'motion/react';
 import { Mail, Send, Github, Linkedin, Twitter } from 'lucide-react';
 import { useState } from 'react';
 import Spline from '@splinetool/react-spline';
@@ -45,79 +45,79 @@ export default function Contact() {
   };
 
   return (
-    <section
-      id="contact"
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 "
-    >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        className="max-w-7xl mx-auto w-full"
+    <LazyMotion features={domAnimation}>
+      <section
+        id="contact"
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 "
       >
+        <m.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="max-w-7xl mx-auto w-full"
+        >
         {/* Section Title */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
-            Let&apos;s <span className="text-blue-500">Connect</span>
-          </h2>
-          <div className="w-20 h-1 bg-slate-600 mx-auto rounded-full"></div>
-          <p className="text-slate-600 mt-4 text-lg">
-            Let&apos;s work together to bring your ideas to life
-          </p>
-        </motion.div>
-
+          <m.div variants={itemVariants} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
+              Let&apos;s <span className="text-blue-500">Connect</span>
+            </h2>
+            <div className="w-20 h-1 bg-slate-600 mx-auto rounded-full"></div>
+            <p className="text-slate-600 mt-4 text-lg">
+              Let&apos;s work together to bring your ideas to life
+            </p>
+          </m.div>
         <div className="max-w-4xl mx-auto">
           {/* Single Combined Component */}
-          <motion.div variants={itemVariants} className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
+          <m.div variants={itemVariants} className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
             {/* Social Media Section */}
             <div className="text-center mb-8">
              
               {/* Social Media Icons */}
               <div className="mb-8">
                 <div className="flex justify-center space-x-4">
-                  <motion.a
+                  <m.a
                     href="https://github.com/yourusername"
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, y: -5 }}
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors duration-300"
                   >
                     <Github size={20} />
-                  </motion.a>
-                  <motion.a
+                  </m.a>
+                  <m.a
                     href="https://linkedin.com/in/yourusername"
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, y: -5 }}
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors duration-300"
                   >
                     <Linkedin size={20} />
-                  </motion.a>
-                  <motion.a
+                  </m.a>
+                  <m.a
                     href="https://twitter.com/yourusername"
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, y: -5 }}
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors duration-300"
                   >
                     <svg width={20} height={20} viewBox="0 0 24 24" fill="currentColor">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
-                  </motion.a>
-                  <motion.a
+                  </m.a>
+                  <m.a
                    href="mailto:aegulasandeep@gmail.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, y: -5 }}
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors duration-300"
                   >
                     <Mail size={20} />
-                  </motion.a>
+                  </m.a>
                 </div>
               </div>
             </div>
@@ -125,117 +125,70 @@ export default function Contact() {
             {/* Divider */}
             <div className="border-t border-slate-200 mb-8"></div>
 
-            {/* 3D Animation Section */}
+            {/* Simplified Animation Section */}
             <div className="text-center mb-6">
               <p className="text-slate-600">Ready to collaborate and create something amazing together</p>
             </div>
             
             <div className="relative w-full h-96 rounded-lg overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
-              {/* Fallback 3D-like illustration using CSS */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative">
-                  {/* Connection nodes */}
-                  <motion.div
-                    className="absolute w-4 h-4 bg-blue-500 rounded-full"
-                    style={{ top: '20px', left: '50px' }}
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ repeat: Infinity, duration: 2 }}
-                  />
-                  <motion.div
-                    className="absolute w-4 h-4 bg-green-500 rounded-full"
-                    style={{ top: '80px', right: '60px' }}
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
-                  />
-                  <motion.div
-                    className="absolute w-4 h-4 bg-purple-500 rounded-full"
-                    style={{ bottom: '30px', left: '40px' }}
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ repeat: Infinity, duration: 2, delay: 1 }}
-                  />
-                  <motion.div
-                    className="absolute w-4 h-4 bg-orange-500 rounded-full"
-                    style={{ bottom: '60px', right: '50px' }}
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ repeat: Infinity, duration: 2, delay: 1.5 }}
-                  />
-                  
                   {/* Central hub */}
-                  <motion.div
+                  <m.div
                     className="w-20 h-20 bg-slate-900 rounded-full flex items-center justify-center relative z-10"
-                    animate={{ rotate: 360 }}
-                    transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+                    animate={{ opacity: [0.8, 1, 0.8] }}
+                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
                   >
                     <Mail size={32} className="text-white" />
-                  </motion.div>
+                  </m.div>
                   
-                  {/* Connection lines */}
-                  <motion.div
-                    className="absolute top-8 left-16 w-12 h-0.5 bg-blue-500 origin-left"
-                    animate={{ scaleX: [0, 1, 0] }}
-                    transition={{ repeat: Infinity, duration: 3 }}
+                  {/* Simple connection nodes */}
+                  <m.div
+                    className="absolute w-4 h-4 bg-blue-500 rounded-full"
+                    style={{ top: '20px', left: '50px' }}
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
                   />
-                  <motion.div
-                    className="absolute top-16 right-12 w-12 h-0.5 bg-green-500 origin-right"
-                    animate={{ scaleX: [0, 1, 0] }}
-                    transition={{ repeat: Infinity, duration: 3, delay: 0.75 }}
+                  <m.div
+                    className="absolute w-4 h-4 bg-green-500 rounded-full"
+                    style={{ top: '80px', right: '60px' }}
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
                   />
-                  <motion.div
-                    className="absolute bottom-8 left-12 w-12 h-0.5 bg-purple-500 origin-left"
-                    animate={{ scaleX: [0, 1, 0] }}
-                    transition={{ repeat: Infinity, duration: 3, delay: 1.5 }}
+                  <m.div
+                    className="absolute w-4 h-4 bg-purple-500 rounded-full"
+                    style={{ bottom: '30px', left: '40px' }}
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ repeat: Infinity, duration: 2, delay: 1 }}
                   />
-                  <motion.div
-                    className="absolute bottom-16 right-16 w-12 h-0.5 bg-orange-500 origin-right"
-                    animate={{ scaleX: [0, 1, 0] }}
-                    transition={{ repeat: Infinity, duration: 3, delay: 2.25 }}
+                  <m.div
+                    className="absolute w-4 h-4 bg-orange-500 rounded-full"
+                    style={{ bottom: '60px', right: '50px' }}
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ repeat: Infinity, duration: 2, delay: 1.5 }}
                   />
                 </div>
               </div>
-              
-              {/* Floating particles */}
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-2 h-2 bg-slate-400 rounded-full"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                  }}
-                  animate={{
-                    y: [0, -20, 0],
-                    opacity: [0.3, 0.8, 0.3],
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 3 + Math.random() * 2,
-                    delay: Math.random() * 2,
-                  }}
-                />
-              ))}
             </div>
             
             <div className="mt-6 text-center">
-              <motion.p
+              <m.p
                 className="text-slate-600 mb-4"
                 animate={{ opacity: [0.7, 1, 0.7] }}
                 transition={{ repeat: Infinity, duration: 2 }}
               >
                 Building connections that matter
-              </motion.p>
-              <motion.div
-                className="flex justify-center space-x-2"
-                animate={{ y: [0, -5, 0] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-              >
+              </m.p>
+              <div className="flex justify-center space-x-2">
                 <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
+    </LazyMotion>
   );
 }

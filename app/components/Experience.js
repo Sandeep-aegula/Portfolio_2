@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { LazyMotion, domAnimation, m } from 'motion/react';
 
 export default function Experience() {
   const experiences = [
@@ -78,26 +78,26 @@ export default function Experience() {
   };
 
   return (
-    <section
-      id="experience"
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20"
-    >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        className="max-w-5xl mx-auto w-full"
+    <LazyMotion features={domAnimation}>
+      <section
+        id="experience"
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20"
       >
+        <m.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="max-w-5xl mx-auto w-full"
+        >
         {/* Section Title */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
-            Work <span className="text-blue-500">Experience</span>
-          </h2>
-          <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
-          <p className="text-slate-400 mt-4 text-lg">My professional journey</p>
-        </motion.div>
-
+          <m.div variants={itemVariants} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
+              Work <span className="text-blue-500">Experience</span>
+            </h2>
+            <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
+            <p className="text-slate-400 mt-4 text-lg">My professional journey</p>
+          </m.div>
         {/* Timeline */}
         <div className="relative">
           {/* Vertical Line */}
@@ -106,7 +106,7 @@ export default function Experience() {
           {/* Experience Items */}
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <motion.div
+              <m.div
                 key={exp.title + exp.company}
                 variants={itemVariants}
                 className={`relative flex flex-col md:flex-row items-start md:items-center ${
@@ -121,8 +121,8 @@ export default function Experience() {
                 ></div>
 
                 {/* Content Card */}
-                <motion.div
-                  whileHover={{ scale: 1.02, y: -5 }}
+                <m.div
+                  whileHover={{ scale: 1.02 }}
                   className={`w-full md:w-5/12 ml-16 md:ml-0 ${
                     index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'
                   }`}
@@ -162,12 +162,13 @@ export default function Experience() {
                       ))}
                     </ul>
                   </div>
-                </motion.div>
-              </motion.div>
+                </m.div>
+              </m.div>
             ))}
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
+    </LazyMotion>
   );
 }

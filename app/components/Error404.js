@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { LazyMotion, domAnimation, m } from 'motion/react';
 import { Home, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -25,14 +25,15 @@ export default function Error404() {
     );
   }, []);
   return (
-    <div className="min-h-screen bg-slate-900 flex items-center justify-center px-4 overflow-hidden">
-      <div className="text-center max-w-2xl mx-auto">
-        {/* 3D 404 Text */}
-        <div className="relative mb-12">
-          <motion.div
-            initial={{ rotateX: -90, opacity: 0 }}
-            animate={{ rotateX: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+    <LazyMotion features={domAnimation}>
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center px-4 overflow-hidden">
+        <div className="text-center max-w-2xl mx-auto">
+          {/* 3D 404 Text */}
+          <div className="relative mb-12">
+            <m.div
+              initial={{ rotateX: -90, opacity: 0 }}
+              animate={{ rotateX: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
             className="text-[12rem] md:text-[16rem] font-black text-white leading-none relative"
             style={{
               transform: 'perspective(1000px) rotateX(15deg)',
@@ -59,13 +60,13 @@ export default function Error404() {
             >
               404
             </div>
-          </motion.div>
+</m.div>
         </div>
 
         {/* Floating 3D Cubes */}
         <div className="absolute inset-0 pointer-events-none">
           {mounted && cubes.map((cube) => (
-            <motion.div
+            <m.div
               key={cube.id}
               className="absolute w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-600"
               style={{
@@ -89,7 +90,7 @@ export default function Error404() {
         </div>
 
         {/* Content */}
-        <motion.div
+        <m.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -105,7 +106,7 @@ export default function Error404() {
           {/* 3D Button */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/">
-              <motion.button
+              <m.button
                 whileHover={{ 
                   scale: 1.05,
                   rotateX: -5,
@@ -124,10 +125,10 @@ export default function Error404() {
                 {/* 3D Button Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-800 to-slate-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
-              </motion.button>
+              </m.button>
             </Link>
 
-            <motion.button
+            <m.button
               whileHover={{ 
                 scale: 1.05,
                 rotateX: 5,
@@ -143,12 +144,12 @@ export default function Error404() {
             >
               <ArrowLeft size={20} />
               <span>Go Back</span>
-            </motion.button>
+            </m.button>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Animated Ground Plane */}
-        <motion.div
+        <m.div
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ scaleX: 1, opacity: 0.1 }}
           transition={{ duration: 1.5, delay: 1 }}
@@ -160,5 +161,6 @@ export default function Error404() {
         />
       </div>
     </div>
+    </LazyMotion>
   );
 }

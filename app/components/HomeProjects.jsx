@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { LazyMotion, domAnimation, m } from 'motion/react';
 import { useRouter } from 'next/navigation';
 import { Eye } from 'lucide-react';
 import { projects } from '../data/projects';
@@ -39,19 +39,20 @@ export default function HomeProjects() {
   };
 
   return (
-    <section
-      id="projects"
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 "
-    >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        className="max-w-7xl mx-auto w-full"
+    <LazyMotion features={domAnimation}>
+      <section
+        id="projects"
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 "
       >
+        <m.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="max-w-7xl mx-auto w-full"
+        >
         {/* Section Title */}
-        <motion.div variants={cardVariants} className="text-center mb-16">
+        <m.div variants={cardVariants} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
             Featured <span className="text-blue-500">Projects</span>
           </h2>
@@ -59,15 +60,15 @@ export default function HomeProjects() {
           <p className="text-slate-600 mt-4 text-lg">
             Some of my recent work and side projects
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Projects Grid - Only 3 projects */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {featuredProjects.map((project, index) => (
-            <motion.div
+            <m.div
               key={project.id}
               variants={cardVariants}
-              whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{ scale: 1.02 }}
               onClick={() => handleProjectClick(project.id)}
               className="bg-white backdrop-blur-md border border-slate-200 rounded-2xl overflow-hidden shadow-xl hover:shadow-slate-900/20 transition-all group cursor-pointer hover:bg-slate-50"
             >
@@ -109,40 +110,30 @@ export default function HomeProjects() {
                   </span>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         {/* View More Button */}
-        <motion.div
+        <m.div
           variants={cardVariants}
           className="text-center"
         >
-          <motion.button
+          <m.button
             onClick={handleViewMore}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-slate-900 hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-full text-lg shadow-lg hover:shadow-slate-900/30 transition-all duration-300 group"
           >
-            <motion.span 
-              className="mr-2 inline-block"
-              animate={{
-                scale: [1, 1.08, 1],
-                rotate: [0, 3, -3, 0]
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
+            <span className="mr-2 inline-block">
               <Eye size={20} />
-            </motion.span>
+            </span>
             View All Projects
             <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
-          </motion.button>
-        </motion.div>
-      </motion.div>
+          </m.button>
+        </m.div>
+      </m.div>
     </section>
+    </LazyMotion>
   );
 }

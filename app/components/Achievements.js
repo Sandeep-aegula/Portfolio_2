@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { LazyMotion, domAnimation, m } from 'motion/react';
 import { Trophy, Code, Star, Wrench } from 'lucide-react';
 
 export default function Achievements() {
@@ -52,19 +52,20 @@ const awards = [
   };
 
   return (
-    <section
-      id="achievements"
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20"
-    >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        className="max-w-7xl mx-auto w-full"
+    <LazyMotion features={domAnimation}>
+      <section
+        id="achievements"
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20"
       >
+        <m.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="max-w-7xl mx-auto w-full"
+        >
         {/* Section Title */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
+        <m.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
             Achievements & <span className="text-blue-500">Awards</span>
           </h2>
@@ -72,14 +73,14 @@ const awards = [
           <p className="text-slate-400 mt-4 text-lg">
             Recognition and continuous learning
           </p>
-        </motion.div>
+        </m.div>
 
  
         {/* Awards */}
         <div>
           <div className="grid md:grid-cols-2 gap-8">
             {awards.map((award, index) => (
-              <motion.div
+              <m.div
                 key={award.title}
                 variants={itemVariants}
                 whileHover={{ scale: 1.03, y: -5 }}
@@ -112,13 +113,14 @@ const awards = [
                 {/* Decorative Elements */}
                 <div className="absolute top-4 right-4 w-2 h-2 bg-slate-400 rounded-full opacity-60" />
                 <div className="absolute bottom-4 left-4 w-1 h-1 bg-slate-600 rounded-full opacity-40" />
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
 
      
-      </motion.div>
+      </m.div>
     </section>
+    </LazyMotion>
   );
 }

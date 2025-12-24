@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { LazyMotion, domAnimation, m } from 'motion/react';
 import { useState } from 'react';
 import Image from 'next/image';
 
@@ -96,19 +96,20 @@ export default function Skills() {
   };
 
   return (
-    <section
-      id="skills"
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20"
-    >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        className="max-w-7xl mx-auto w-full"
+    <LazyMotion features={domAnimation}>
+      <section
+        id="skills"
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20"
       >
+        <m.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="max-w-7xl mx-auto w-full"
+        >
         {/* Section Title */}
-        <motion.div variants={categoryVariants} className="text-center mb-16">
+        <m.div variants={categoryVariants} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
             My <span className="text-blue-500">Skills</span>
           </h2>
@@ -116,28 +117,28 @@ export default function Skills() {
           <p className="text-slate-400 mt-4 text-lg">
             Technologies & tools I work with
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Skills Bento Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {Object.entries(skillsData).map(([category, skills], catIndex) => (
-            <motion.div
+            <m.div
               key={category}
               variants={categoryVariants}
               className="bg-white rounded-[2rem] p-8 shadow-2xl shadow-blue-500/20 backdrop-blur-sm border border-white/10"
             >
               {/* Category Title */}
-              <motion.div
+              <m.div
                 className="bg-slate-900 rounded-full py-3 px-6 mb-8 text-center"
                 variants={categoryVariants}
               >
                 <h3 className="text-xl font-bold text-slate-50 tracking-widest uppercase">
                   {category}
                 </h3>
-              </motion.div>
+              </m.div>
 
               {/* Skills Pill Grid */}
-              <motion.div 
+              <m.div 
                 variants={containerVariants}
                 className="grid grid-cols-3 md:grid-cols-2 gap-3"
               >
@@ -146,7 +147,7 @@ export default function Skills() {
                   const isHovered = hoveredSkill === skillKey;
                   
                   return (
-                    <motion.div
+                    <m.div
                       key={skill.name}
                       variants={skillPillVariants}
                       whileHover={{ scale: 1.05 }}
@@ -157,23 +158,23 @@ export default function Skills() {
                       {/* Skill Pill with Liquid Fill Effect */}
                       <div className="relative overflow-hidden bg-slate-100 border border-slate-200 rounded-full py-3 px-4 cursor-pointer transition-all duration-300">
                         
-                        {/* Liquid Fill Background */}
-                        <motion.div
-                          initial={{ y: "100%" }}
+                        {/* Simplified Fill Background */}
+                        <m.div
+                          initial={{ opacity: 0 }}
                           animate={{ 
-                            y: isHovered ? "0%" : "100%",
+                            opacity: isHovered ? 1 : 0,
                             backgroundColor: skill.color || "#0f172a"
                           }}
                           transition={{ 
-                            duration: 0.6,
-                            ease: [0.25, 0.1, 0.25, 1.0]
+                            duration: 0.3,
+                            ease: "easeInOut"
                           }}
                           className="absolute inset-0 rounded-full"
                         />
                         
                         {/* Content */}
                         <div className="relative z-10 flex items-center justify-center md:justify-start md:space-x-2">
-                          <motion.div 
+                          <m.div 
                             className="group-hover:scale-110 transition-transform flex items-center justify-center"
                             animate={{
                               scale: isHovered ? 1.1 : 1
@@ -195,9 +196,9 @@ export default function Skills() {
                                 filter: !isHovered ? `brightness(0) saturate(100%) ${getColorFilter(skill.color)}` : 'none'
                               }}
                             />
-                          </motion.div>
+                          </m.div>
                           <div className="min-w-0 flex-1 hidden md:block">
-                            <motion.div
+                            <m.div
                               animate={{
                                 color: isHovered ? "#f8fafc" : "#0f172a"
                               }}
@@ -205,8 +206,8 @@ export default function Skills() {
                               className="font-bold text-xs uppercase tracking-wide truncate"
                             >
                               {skill.name}
-                            </motion.div>
-                            <motion.div
+                            </m.div>
+                            <m.div
                               animate={{
                                 color: isHovered ? "#f8fafc" : "#64748b"
                               }}
@@ -214,57 +215,45 @@ export default function Skills() {
                               className="text-xs opacity-60 font-medium"
                             >
                               {skill.level}%
-                            </motion.div>
+                            </m.div>
                           </div>
                         </div>
 
-                        {/* Hover Glow Effect */}
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ 
-                            opacity: isHovered ? 0.2 : 0,
-                            scale: isHovered ? 1.2 : 0.8
-                          }}
-                          transition={{ duration: 0.3 }}
-                          className="absolute -inset-2 rounded-full blur-md"
-                          style={{ backgroundColor: skill.color || "#0f172a" }}
-                        />
                       </div>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           ))}
         </div>
 
-        {/* Floating Skills Summary Pill */}
-        <motion.div
+        {/* Simplified Skills Summary Pill */}
+        <m.div
           variants={categoryVariants}
           className="mt-12 text-center"
         >
-          <motion.div 
+          <m.div 
             className="bg-blue-500 text-slate-50 rounded-full py-4 px-8 inline-block font-bold text-lg uppercase tracking-widest shadow-2xl"
             whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)",
-              backgroundColor: "#2563eb"
+              scale: 1.05
             }}
             animate={{
-              y: [-5, 5, -5],
+              opacity: [0.9, 1, 0.9],
             }}
             transition={{
-              y: {
-                duration: 4,
+              opacity: {
+                duration: 2,
                 repeat: Infinity,
                 ease: "easeInOut",
               }
             }}
           >
             ALWAYS LEARNING • ALWAYS GROWING
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </m.div>
+        </m.div>
+      </m.div>
     </section>
+    </LazyMotion>
   );
 }
