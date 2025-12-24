@@ -238,9 +238,10 @@ function PixelSnow({
     };
     window.addEventListener('resize', handleResize);
 
-    const startTime = performance.now();
+    const startTime = window.performance.now();
     let lastTime = 0;
-    const targetFPS = performance === 'low' ? 30 : 60;
+    const devicePerf = performance; // Store device performance level to avoid conflict
+    const targetFPS = devicePerf === 'low' ? 30 : 60;
     const frameInterval = 1000 / targetFPS;
     
     const animate = (currentTime) => {

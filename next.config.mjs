@@ -14,6 +14,18 @@ const nextConfig = {
   // Compress and optimize assets
   compress: true,
   
+  // Webpack configuration for production optimization
+  webpack: (config, { dev, isServer }) => {
+    // Resolve Three.js to single instance
+    if (!dev && !isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'three': require.resolve('three')
+      };
+    }
+    return config;
+  },
+  
   // Image optimization
   images: {
     formats: ['image/webp', 'image/avif'],
