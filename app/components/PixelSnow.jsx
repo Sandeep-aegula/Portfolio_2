@@ -134,6 +134,9 @@ void main() {
 
 // Performance detection utility
 const getDevicePerformance = () => {
+  // Only run on client side
+  if (typeof window === 'undefined') return 'medium';
+  
   const canvas = document.createElement('canvas');
   const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
   
@@ -172,6 +175,9 @@ function PixelSnow({
   const animationRef = useRef(0);
 
   useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined') return;
+    
     const container = containerRef.current;
     if (!container) return;
 
