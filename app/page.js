@@ -2,7 +2,7 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-
+import LightSnow from './components/LightSnow';
 // Lazy load non-critical components
 const About = lazy(() => import('./components/About'));
 const Skills = lazy(() => import('./components/Skills'));
@@ -17,10 +17,10 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Reduce loading time for faster initial render
+    // Minimal delay just to ensure smooth transition
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, process.env.NODE_ENV === 'production' ? 800 : 1500); // Faster in production
+    }, 100); // Minimal delay for smooth transition
 
     return () => clearTimeout(timer);
   }, []);
@@ -32,7 +32,7 @@ export default function Page() {
     <main className="bg-[#060010] text-slate-50 min-h-screen selection:bg-blue-500/30 overflow-x-hidden relative">
       {/* Pixel Snow Background Animation - Optimized for production */}
       <Suspense fallback={<div />}>
-        <PixelSnow
+        {/* <PixelSnow
           color="#ffffff"
           flakeSize={0.008} // Slightly larger for better performance
           minFlakeSize={1.2}
@@ -43,7 +43,20 @@ export default function Page() {
           brightness={0.3} // Dimmer for less GPU load
           className="pointer-events-none"
           style={{ zIndex: 0 }}
+        /> */}
+        <LightSnow
+          color="#ffffff"
+          flakeSize={0.008} // Slightly larger for better performance
+          minFlakeSize={1.2}
+          pixelResolution={process.env.NODE_ENV === 'production' ? 150 : 250} // Reduce quality in production
+          speed={0.4} // Slower for better performance
+          density={process.env.NODE_ENV === 'production' ? 0.05 : 0.10} // Reduce density in production
+          direction={125} 
+          brightness={0.3} // Dimmer for less GPU load
+          className="pointer-events-none"
+          style={{ zIndex: 0 }}
         />
+
       </Suspense>
       
       {/* Main Content */}

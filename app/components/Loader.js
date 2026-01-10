@@ -13,7 +13,7 @@ export default function Loader({ onLoadingComplete }) {
       if (onLoadingComplete) {
         onLoadingComplete();
       }
-    }, 2500); // 2.5 seconds loading time
+    }, 300); // Quick loading animation
 
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);
