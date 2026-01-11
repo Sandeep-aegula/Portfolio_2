@@ -197,7 +197,7 @@ function Home() {
             <div className="w-full max-w-lg aspect-square">
               <DotLottieReact
                 src="/Home_Page_Animation.lottie"
-                loop={process.env.NODE_ENV !== 'production'} // Only loop in development
+                loop
                 autoplay
                 className="w-full h-full"
                 speed={process.env.NODE_ENV === 'production' ? 0.8 : 1} // Slower in production for better performance
