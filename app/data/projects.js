@@ -1,12 +1,12 @@
 export const projects = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
+    title: 'Google Arcade Points Calculator',
     description:
-      'A full-stack e-commerce solution with payment integration, inventory management, and real-time order tracking.',
-    tech: ['Next.js', 'Typescript', 'MongoDB', 'Stripe', 'Tailwind CSS'],
-    github: 'https://github.com/yourusername/project1',
-    live: 'https://project1.demo.com',
+      'A specialized utility tool designed to calculate and track reward points for participants in the Google Cloud Arcade program.',
+    tech: ['React.js', 'Express js' , 'MongoDB', 'WebScrapping', 'Tailwind CSS'],
+    github: 'https://github.com/Sandeep-aegula/Arcade_Points_Calculator',
+    live: 'https://google-arcade-points-calculator.vercel.app/',
     icon: '🛒',
   },
   {
@@ -14,7 +14,7 @@ export const projects = [
     title: 'Task Management Dashboard',
     description:
       'Collaborative project management tool with drag-and-drop interface, real-time updates, and team analytics.',
-    tech: ['React', 'Express', 'MongoDB', 'Socket.io', 'Material-UI'],
+    tech: ['React', 'Express', 'MongoDB', 'Tailwind CSS', ],
     github: 'https://github.com/yourusername/project2',
     live: 'https://project2.demo.com',
     icon: '📊',
@@ -34,20 +34,22 @@ export const projects = [
     title: 'Real-time Chat Application',
     description:
       'Feature-rich messaging app with end-to-end encryption, file sharing, and video calling capabilities.',
-    tech: ['React', 'WebRTC', 'NextAuth', 'Node.js', 'WebSocket'],
-    github: 'https://github.com/yourusername/project4',
-    live: 'https://project4.demo.com',
+    tech: ['React js','Express' ,'WebRTC', 'MongoDB', 'Cloudinary', 'WebSocket'],
+    github: 'https://github.com/Sandeep-aegula/timechat',
+    live: 'https://timechat-alpha.vercel.app/',
     icon: '💬',
   },
   {
-    id: 5,
-    title: 'AI Content Generator',
+{
+    id: 6,
+    title: 'Telegram  Bot',
     description:
-      'AI-powered tool for generating marketing content, blog posts, and social media captions using GPT integration.',
-    tech: ['Next.js', 'Gemini API', 'Prisma', 'MongoDB', 'Vercel'],
-    github: 'https://github.com/yourusername/project5',
-    live: 'https://project5.demo.com',
-    icon: '🤖',
+      'A multi-functional Telegram bot designed for real-time alerts, automated group moderation, and API-driven data retrieval using webhook integration.',
+    tech: ['Node.js', 'Telegraf.js', 'Express', 'MongoDB', 'Heroku'],
+    github: 'https://github.com/Sandeep-aegula/Telegram_bot',
+    live: 'https://t.me/Awsmlritmbot', // Replace with your actual bot link
+    icon: '🚀',
+}
   },
   {
     id: 6,
@@ -55,8 +57,8 @@ export const projects = [
     description:
       'Mobile-responsive fitness tracker with workout plans, nutrition logging, and progress visualization.',
     tech: ['React Native', 'Express', 'MongoDB', 'Redux', 'Chart.js'],
-    github: 'https://github.com/yourusername/project6',
-    live: 'https://project6.demo.com',
+    github: 'https://github.com/Sandeep-aegula/CalistheniX',
+    live: 'https://calisthenix.vercel.app/',
     icon: '💪',
   },
 ];

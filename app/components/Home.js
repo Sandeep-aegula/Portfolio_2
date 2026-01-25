@@ -89,7 +89,7 @@ function Home() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
                 >
-                  FULL-STACK DEVELOPER & UI/UX DESIGNER
+                  FULL-STACK DEVELOPER & AUTOMATION ENTHUSIAST
                 </m.div>
                 <m.p
                   className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
