@@ -1,64 +1,93 @@
+import { 
+  Calculator, 
+  MessageSquare, 
+  BarChart3, 
+  Activity, 
+  FileText, 
+  HeartPulse,
+  CloudSun,
+  ListTodo
+} from 'lucide-react';
+
 export const projects = [
   {
     id: 1,
     title: 'Google Arcade Points Calculator',
-    description:
-      'A specialized utility tool designed to calculate and track reward points for participants in the Google Cloud Arcade program.',
-    tech: ['React.js', 'Express js' , 'MongoDB', 'WebScrapping', 'Tailwind CSS'],
+    description: 'A specialized utility tool designed to calculate and track reward points for participants in the Google Cloud Arcade program.',
+    tech: ['React', 'Node.js', 'Puppeteer', 'MongoDB'],
+    metaTags: ['#Automation', '#FullStack'],
     github: 'https://github.com/Sandeep-aegula/Arcade_Points_Calculator',
     live: 'https://google-arcade-points-calculator.vercel.app/',
-    icon: '🛒',
+    icon: <Calculator className="w-16 h-16 text-blue-500" />,
   },
   {
     id: 2,
-    title: 'Task Management Dashboard',
-    description:
-      'Collaborative project management tool with drag-and-drop interface, real-time updates, and team analytics.',
-    tech: ['React', 'Express', 'MongoDB', 'Tailwind CSS', ],
-    github: 'https://github.com/yourusername/project2',
-    live: 'https://project2.demo.com',
-    icon: '📊',
+    title: 'Time Chat',
+    description: 'Feature-rich messaging app with end-to-end encryption, file sharing, and video calling capabilities.',
+    tech: ['Socket.io', 'Node.js', 'Express', 'React'],
+    metaTags: ['#RealTimeSystems', '#Scalability'],
+    github: 'https://github.com/Sandeep-aegula/timechat',
+    live: 'https://timechat-alpha.vercel.app/',
+    icon: <MessageSquare className="w-16 h-16 text-emerald-500" />,
   },
   {
     id: 3,
-    title: 'Social Media Analytics',
-    description:
-      'Analytics platform for tracking social media metrics, engagement rates, and audience insights with data visualization.',
-    tech: ['Next.js', 'Python', 'FastAPI', 'Chart.js', 'Redis'],
-    github: 'https://github.com/yourusername/project3',
-    live: 'https://project3.demo.com',
-    icon: '📈',
+    title: 'PRISM Conversational BI',
+    description: 'A Conversational BI tool that bridges the gap between natural language and data, allowing users to query databases in plain English.',
+    tech: ['Next.js', 'FastAPI', 'Groq API', 'Python'],
+    metaTags: ['#GenAI', '#Scalability'],
+    github: 'https://github.com/Sandeep-aegula/conversational-bi',
+    live: 'https://conversational-bi-zasg.vercel.app/',
+    icon: <BarChart3 className="w-16 h-16 text-purple-500" />,
   },
   {
     id: 4,
-    title: 'Real-time Chat Application',
-    description:
-      'Feature-rich messaging app with end-to-end encryption, file sharing, and video calling capabilities.',
-    tech: ['React js','Express' ,'WebRTC', 'MongoDB', 'Cloudinary', 'WebSocket'],
-    github: 'https://github.com/Sandeep-aegula/timechat',
-    live: 'https://timechat-alpha.vercel.app/',
-    icon: '💬',
-  },
-  {
-{
-    id: 6,
-    title: 'Telegram  Bot',
-    description:
-      'A multi-functional Telegram bot designed for real-time alerts, automated group moderation, and API-driven data retrieval using webhook integration.',
-    tech: ['Node.js', 'Telegraf.js', 'Express', 'MongoDB', 'Heroku'],
-    github: 'https://github.com/Sandeep-aegula/Telegram_bot',
-    live: 'https://t.me/Awsmlritmbot', // Replace with your actual bot link
-    icon: '🚀',
-}
-  },
-  {
-    id: 6,
-    title: 'Fitness Tracking App',
-    description:
-      'Mobile-responsive fitness tracker with workout plans, nutrition logging, and progress visualization.',
-    tech: ['React Native', 'Express', 'MongoDB', 'Redux', 'Chart.js'],
+    title: 'CalistheniX Web App',
+    description: 'Mobile-responsive fitness tracker with workout plans, nutrition logging, and progress visualization.',
+    tech: ['Next.js', 'MongoDB', 'Tailwind CSS'],
+    metaTags: ['#FullStack'],
     github: 'https://github.com/Sandeep-aegula/CalistheniX',
     live: 'https://calisthenix.vercel.app/',
-    icon: '💪',
+    icon: <Activity className="w-16 h-16 text-orange-500" />,
   },
+  {
+    id: 5,
+    title: 'VidyaMitra (Agentic AI Resume Maker)',
+    description: 'An autonomous AI agent using RAG to analyze job descriptions and dynamically optimize resumes for better ATS match rates.',
+    tech: ['Next.js', 'RAG', 'LLMs'],
+    metaTags: ['#GenAI', '#Automation'],
+    github: 'https://github.com/Sandeep-aegula/vidyamitra',
+    live: 'https://vidyamitra-mu.vercel.app/',
+    icon: <FileText className="w-16 h-16 text-indigo-500" />,
+  },
+  {
+    id: 6,
+    title: 'CarePlus',
+    description: 'A full-scale healthcare management dashboard featuring an integrated AI chatbot to handle basic patient queries and appointment scheduling.',
+    tech: ['MongoDB', 'Express', 'React', 'Node.js', 'OpenAI API'],
+    metaTags: ['#FullStack', '#GenAI'],
+    github: 'https://github.com/Sandeep-aegula/CarePlus',
+    live: 'https://care-plus-vcw9.vercel.app/',
+    icon: <HeartPulse className="w-16 h-16 text-rose-500" />,
+  },
+  {
+    id: 7,
+    title: 'Weather Forecaster',
+    description: 'Integrated third-party APIs with React to provide real-time weather analytics and forecasts.',
+    tech: ['React', 'APIs', 'CSS'],
+    metaTags: ['#Frontend', '#API'],
+    github: 'https://github.com/Sandeep-aegula/Weather_Forecast',
+    live: 'https://sandeep-aegula.github.io/Weather_Forecast/',
+    icon: <CloudSun className="w-16 h-16 text-cyan-500" />,
+  },
+  {
+    id: 8,
+    title: 'Todo List App',
+    description: 'Mastered core CRUD principles, state management, and persistent storage.',
+    tech: ['React', 'State Management', 'LocalStorage'],
+    metaTags: ['#Frontend', '#Hooks'],
+    github: 'https://github.com/Sandeep-aegula/TodoAppFrontend',
+    live: 'https://todoapp-7l94.onrender.com/',
+    icon: <ListTodo className="w-16 h-16 text-yellow-500" />,
+  }
 ];

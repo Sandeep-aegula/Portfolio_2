@@ -40,93 +40,108 @@ export default function ProjectsPage() {
             viewport={{ once: true, amount: 0.1 }}
             className="max-w-7xl mx-auto w-full"
           >
-        {/* Section Title */}
-        <m.div variants={cardVariants} className="text-center mb-16">
-           <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
-            Featured <span className="text-blue-500">Projects</span>
-          </h2>
-          <div className="w-20 h-1 bg-slate-600 mx-auto rounded-full"></div>
-          <p className="text-slate-600 mt-4 text-lg">
-            Some of my recent work and side projects
-          </p>
-        </m.div>
-
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <m.div
-              key={project.id}
-              id={`project-${project.id}`}
-              variants={cardVariants}
-              whileHover={{ scale: 1.02 }}
-              className="bg-white backdrop-blur-md border border-slate-200 rounded-2xl overflow-hidden shadow-xl hover:shadow-slate-900/20 transition-all group hover:bg-slate-50"
-            >
-              {/* Project Icon/Header */}
-              <div className="bg-slate-100 p-8 text-center border-b border-slate-200">
-                <div className="text-6xl mb-2">{project.icon}</div>
-              </div>
-
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-slate-700 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-slate-600 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs font-medium bg-slate-200 text-slate-700 px-3 py-1 rounded-full border border-slate-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex gap-4">
-                  <m.a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex-1 text-center bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium py-2 rounded-lg transition-all"
-                  >
-                    <span className="mr-2">📂</span>
-                    GitHub
-                  </m.a>
-                  <m.a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex-1 text-center bg-slate-900 hover:bg-slate-800 text-white font-medium py-2 rounded-lg transition-all"
-                  >
-                    <span className="mr-2">🚀</span>
-                    Live Demo
-                  </m.a>
-                </div>
-              </div>
+            {/* Section Title */}
+            <m.div variants={cardVariants} className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
+                Featured <span className="text-blue-500">Projects</span>
+              </h2>
+              <div className="w-20 h-1 bg-slate-600 mx-auto rounded-full"></div>
+              <p className="text-slate-600 mt-4 text-lg">
+                Some of my recent work and side projects
+              </p>
             </m.div>
-          ))}
-        </div>
-      </m.div>
-    </section>
-    
-    <footer className="py-16 text-center border-t border-slate-300 text-sm text-slate-600 bg-slate-50">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-white backdrop-blur-sm rounded-full py-4 px-8 inline-block shadow-sm border border-slate-200">
-          © 2025 Developer Portfolio • Built with Next.js & The Fluid Pill Theme
-        </div>
-      </div>
-    </footer>
-  </main>
-  </LazyMotion>
+
+            {/* Projects Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, index) => (
+                <m.div
+                  key={project.id}
+                  id={`project-${project.id}`}
+                  variants={cardVariants}
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-white backdrop-blur-md border border-slate-200 rounded-2xl overflow-hidden shadow-xl hover:shadow-slate-900/20 transition-all group hover:bg-slate-50 flex flex-col h-full"
+                >
+                  {/* Project Icon/Header */}
+                  <div className="bg-slate-100 p-8 flex justify-center items-center border-b border-slate-200">
+                    <div className="mb-2">{project.icon}</div>
+                  </div>
+
+                  {/* Project Content */}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-slate-700 transition-colors">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-xs font-medium bg-slate-200 text-slate-700 px-3 py-1 rounded-full border border-slate-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Meta Tags */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.metaTags?.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs font-semibold text-blue-600"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Links */}
+                    <div className="flex gap-4 mt-auto">
+                      <m.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex-1 text-center bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium py-2 rounded-lg transition-all"
+                      >
+                        <span className="mr-2">📂</span>
+                        GitHub
+                      </m.a>
+                      <m.a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex-1 text-center bg-slate-900 hover:bg-slate-800 text-white font-medium py-2 rounded-lg transition-all"
+                      >
+                        <span className="mr-2">🚀</span>
+                        Live Demo
+                      </m.a>
+                    </div>
+                  </div>
+                </m.div>
+              ))}
+            </div>
+          </m.div>
+        </section>
+
+
+
+        <footer className="py-16 text-center border-t border-slate-300 text-sm text-slate-600 bg-slate-50">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="bg-white backdrop-blur-sm rounded-full py-4 px-8 inline-block shadow-sm border border-slate-200">
+              © 2025 Developer Portfolio • Built with Next.js & The Fluid Pill Theme
+            </div>
+          </div>
+        </footer>
+      </main>
+    </LazyMotion>
   );
 }
