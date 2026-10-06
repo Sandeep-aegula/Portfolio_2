@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
+import Footer from './components/Footer';
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -20,11 +22,11 @@ export const metadata = {
   },
   description: 'Full-stack developer and UI/UX designer specializing in React, Next.js, and n8n automation. Building scalable web applications with a focus on clean code and user-centric design.',
   keywords: [
-    'Aegula Sandeep', 
-    'Full-Stack Developer Hyderabad', 
-    'UI/UX Designer', 
-    'n8n Automation', 
-    'Next.js Portfolio', 
+    'Aegula Sandeep',
+    'Full-Stack Developer Hyderabad',
+    'UI/UX Designer',
+    'n8n Automation',
+    'Next.js Portfolio',
     'React Developer India',
     'Automation Engineer'
   ],
@@ -84,13 +86,13 @@ export const metadata = {
 };
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#060010] text-slate-50`}
-      >
-        {children}
-        <Analytics />
-      </body>
+    <html lang="en" className="dark" suppressHydrationWarning>      <body
+      className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#060010] text-slate-50`}
+    >
+      {children}
+      <Footer />
+      <Analytics />
+    </body>
     </html>
   );
 }

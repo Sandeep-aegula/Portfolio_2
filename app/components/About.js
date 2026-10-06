@@ -107,7 +107,7 @@ function About() {
                     }}
                   >
                     <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-blue-500/20">
-                      JS
+                      <Image src="/Skills/Js.svg" alt="JavaScript" width={18} height={18} style={{ filter: 'brightness(0) invert(1)' }} />
                     </div>
                   </m.div>
 
@@ -124,7 +124,7 @@ function About() {
                     }}
                   >
                     <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-cyan-500/20">
-                      ⚛️
+                      <Image src="/Skills/React.svg" alt="React" width={18} height={18} style={{ filter: 'brightness(0) invert(1)' }} />
                     </div>
                   </m.div>
 
@@ -141,7 +141,7 @@ function About() {
                     }}
                   >
                     <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-green-500/20">
-                      🟢
+                      <Image src="/Skills/Nodejs.svg" alt="Node.js" width={18} height={18} style={{ filter: 'brightness(0) invert(1)' }} />
                     </div>
                   </m.div>
 
@@ -158,7 +158,7 @@ function About() {
                     }}
                   >
                     <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-orange-500/20">
-                      🗄️
+                      <Image src="/Skills/sql.svg" alt="Database" width={18} height={18} style={{ filter: 'brightness(0) invert(1)' }} />
                     </div>
                   </m.div>
 
@@ -219,7 +219,7 @@ function About() {
                 }}
                 className="absolute top-1/2 -left-6 transform -translate-y-1/2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full px-3 py-2 text-xs font-bold uppercase tracking-widest shadow-lg shadow-orange-500/20"
               >
-                DATABASE
+                AI / AUTOMATION
               </m.div>
             </m.div>
 
@@ -231,7 +231,7 @@ function About() {
               >
                 FULL-STACK DEVELOPER
                 <br />
-                <span className="text-slate-600">& AUTOMATION ENTHUSIAST</span>
+                <span className="text-slate-600">& AI/ AUTOMATION ENTHUSIAST</span>
               </m.h3>
               
               <m.div 
@@ -239,21 +239,13 @@ function About() {
                 variants={itemVariants}
               >
                 <p>
-                  I am a <strong>Full-Stack Developer</strong> currently pursuing my B.Tech, driven by the 
-                  challenge of building tools that simplify lives. While I am early in my professional 
-                  journey, I have invested my time into mastering the modern web stack—specifically 
-                  <strong> React, Next.js, and Node.js</strong>.
+                  I am a <strong>Full-Stack Developer and Computer Science & Engineering (AI/ML) student</strong> who enjoys building practical software that solves real-world problems. I work across the modern web stack, with experience in <strong>React, Next.js, JavaScript, TypeScript, Node.js, Python, and FastAPI</strong>.
                 </p>
                 <p>
-                  What sets me apart is my interest in <strong>Workflow Automation</strong>. By leveraging 
-                  <em>n8n</em>, I build systems that do not just display data, but move it intelligently 
-                  between platforms. I believe that great software is not just about code; it is about 
-                  creating seamless, automated experiences that save time and reduce friction.
+                  I am particularly interested in <strong>AI-powered applications and workflow automation</strong>. I enjoy connecting APIs, databases, AI models, and automated workflows to build systems that reduce repetitive work and make information easier to use. My experience includes building conversational data tools, AI-driven applications, REST APIs, and automated data-processing workflows.
                 </p>
                 <p>
-                  I am a firm believer in <strong>learning by doing</strong> and am currently seeking 
-                  opportunities where I can contribute to impactful projects while growing alongside a 
-                  team of experienced developers.
+                  I believe in <strong>learning by building</strong>. Rather than only studying technologies theoretically, I focus on turning what I learn into working projects and practical solutions. I am currently looking for opportunities where I can contribute to meaningful software projects, strengthen my engineering skills, and grow with an experienced development team.
                 </p>
               </m.div>
 
@@ -262,11 +254,11 @@ function About() {
                 variants={containerVariants}
                 className="grid grid-cols-2 gap-3 mt-8"
               >
-                {[
-                  { icon: '🎓', text: 'B.Tech Student' },
-                  { icon: '💼', text: 'Open to Work' },
-                  { icon: '⚡', text: 'Automation Expert' },
-                  { icon: '🚀', text: 'Learning by Doing' },
+                {/* {[
+                  { icon: '🎓', text: 'B.Tech CSE – AI/ML' },
+                  { icon: '💻', text: 'Full-Stack Developer' },
+                  { icon: '🤖', text: 'AI & Automation Enthusiast' },
+                  { icon: '🚀', text: 'Learning by Building' },
                 ].map((item, index) => (
                   <m.div
                     key={index}
@@ -283,7 +275,7 @@ function About() {
                       {item.text}
                     </span>
                   </m.div>
-                ))}
+                ))} */}
               </m.div>
             </m.div>
           </div>

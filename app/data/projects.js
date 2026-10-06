@@ -6,32 +6,23 @@ import {
   FileText, 
   HeartPulse,
   CloudSun,
-  ListTodo
+  ListTodo,
+  Users
 } from 'lucide-react';
 
 export const projects = [
   {
     id: 1,
-    title: 'Google Arcade Points Calculator',
-    description: 'A specialized utility tool designed to calculate and track reward points for participants in the Google Cloud Arcade program.',
-    tech: ['React', 'Node.js', 'Puppeteer', 'MongoDB'],
-    metaTags: ['#Automation', '#FullStack'],
-    github: 'https://github.com/Sandeep-aegula/Arcade_Points_Calculator',
-    live: 'https://google-arcade-points-calculator.vercel.app/',
-    icon: <Calculator className="w-16 h-16 text-blue-500" />,
+    title: 'AI-Driven Smart Hiring Platform',
+    description: 'An AI-powered hiring platform with a Candidate Matching Copilot that uses LLM services to match candidates to job requirements. Built as a team project during the Infosys Springboard AI/ML Virtual Internship.',
+    tech: ['Python', 'FastAPI', 'Streamlit', 'MySQL', 'SQLAlchemy', 'LLMs'],
+    metaTags: ['#GenAI', '#Internship'],
+    github: 'https://github.com/Sandeep-aegula/AI-Driven-Smart-Hiring-Platform-with-Candidate-Matching-Copilot.git',
+    live: 'https://YOUR-DEMO-LINK',
+    icon: <Users className="w-16 h-16 text-teal-500" />,
   },
-  {
+    {
     id: 2,
-    title: 'Time Chat',
-    description: 'Feature-rich messaging app with end-to-end encryption, file sharing, and video calling capabilities.',
-    tech: ['Socket.io', 'Node.js', 'Express', 'React'],
-    metaTags: ['#RealTimeSystems', '#Scalability'],
-    github: 'https://github.com/Sandeep-aegula/timechat',
-    live: 'https://timechat-alpha.vercel.app/',
-    icon: <MessageSquare className="w-16 h-16 text-emerald-500" />,
-  },
-  {
-    id: 3,
     title: 'PRISM Conversational BI',
     description: 'A Conversational BI tool that bridges the gap between natural language and data, allowing users to query databases in plain English.',
     tech: ['Next.js', 'FastAPI', 'Groq API', 'Python'],
@@ -41,7 +32,28 @@ export const projects = [
     icon: <BarChart3 className="w-16 h-16 text-purple-500" />,
   },
   {
+    id: 3,
+    title: 'Google Arcade Points Calculator',
+    description: 'A specialized utility tool designed to calculate and track reward points for participants in the Google Cloud Arcade program.',
+    tech: ['React', 'Node.js', 'Puppeteer', 'MongoDB'],
+    metaTags: ['#Automation', '#FullStack'],
+    github: 'https://github.com/Sandeep-aegula/Arcade_Points_Calculator',
+    live: 'https://google-arcade-points-calculator.vercel.app/',
+    icon: <Calculator className="w-16 h-16 text-blue-500" />,
+  },
+  {
     id: 4,
+    title: 'Time Chat',
+    description: 'Feature-rich messaging app with end-to-end encryption, file sharing, and video calling capabilities.',
+    tech: ['Socket.io', 'Node.js', 'Express', 'React'],
+    metaTags: ['#RealTimeSystems', '#Scalability'],
+    github: 'https://github.com/Sandeep-aegula/timechat',
+    live: 'https://timechat-alpha.vercel.app/',
+    icon: <MessageSquare className="w-16 h-16 text-emerald-500" />,
+  },
+
+  {
+    id: 5,
     title: 'CalistheniX Web App',
     description: 'Mobile-responsive fitness tracker with workout plans, nutrition logging, and progress visualization.',
     tech: ['Next.js', 'MongoDB', 'Tailwind CSS'],
@@ -51,7 +63,7 @@ export const projects = [
     icon: <Activity className="w-16 h-16 text-orange-500" />,
   },
   {
-    id: 5,
+    id: 6,
     title: 'VidyaMitra (Agentic AI Resume Maker)',
     description: 'An autonomous AI agent using RAG to analyze job descriptions and dynamically optimize resumes for better ATS match rates.',
     tech: ['Next.js', 'RAG', 'LLMs'],
@@ -61,7 +73,7 @@ export const projects = [
     icon: <FileText className="w-16 h-16 text-indigo-500" />,
   },
   {
-    id: 6,
+    id: 7,
     title: 'CarePlus',
     description: 'A full-scale healthcare management dashboard featuring an integrated AI chatbot to handle basic patient queries and appointment scheduling.',
     tech: ['MongoDB', 'Express', 'React', 'Node.js', 'OpenAI API'],
@@ -71,7 +83,7 @@ export const projects = [
     icon: <HeartPulse className="w-16 h-16 text-rose-500" />,
   },
   {
-    id: 7,
+    id: 8,
     title: 'Weather Forecaster',
     description: 'Integrated third-party APIs with React to provide real-time weather analytics and forecasts.',
     tech: ['React', 'APIs', 'CSS'],
@@ -81,7 +93,7 @@ export const projects = [
     icon: <CloudSun className="w-16 h-16 text-cyan-500" />,
   },
   {
-    id: 8,
+    id: 9,
     title: 'Todo List App',
     description: 'Mastered core CRUD principles, state management, and persistent storage.',
     tech: ['React', 'State Management', 'LocalStorage'],
@@ -90,4 +102,5 @@ export const projects = [
     live: 'https://todoapp-7l94.onrender.com/',
     icon: <ListTodo className="w-16 h-16 text-yellow-500" />,
   }
+    
 ];

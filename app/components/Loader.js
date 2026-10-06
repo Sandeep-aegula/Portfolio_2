@@ -26,7 +26,7 @@ export default function Loader({ onLoadingComplete }) {
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed inset-0 bg-white z-50 flex items-center justify-center"
+        className="fixed inset-0 bg-white z-[100] flex items-center justify-center"
       >
         <div className="text-center">
           {/* Loading Animation */}

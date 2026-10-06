@@ -1,34 +1,34 @@
 'use client';
 
 import { LazyMotion, domAnimation, m } from 'motion/react';
-import { Trophy, Code, Star, Wrench } from 'lucide-react';
+import { Trophy, Cloud, Gamepad2, Code } from 'lucide-react';
 
 export default function Achievements() {
 
 const awards = [
   {
-    title: 'Cloud Quest Hackathon Winner',
-    organization: 'AWS / Cloud Provider Event',
-    description: 'Developed a high-availability system using EC2 instances, CloudWatch for real-time monitoring, and S3 for secure data storage.',
-    icon: <Trophy size={28} />,
+    title: 'AWS Cloud Quest Hackathon — 2nd Place',
+    organization: 'AWS / Cloud Hackathon',
+    description: 'Secured 2nd place in an AWS Cloud Quest Hackathon by applying cloud concepts to develop a practical technical solution.',
+    icon: <Cloud size={28} />,
   },
   {
     title: 'Algorithm Specialist',
     organization: 'LeetCode',
-    description: 'Solved 100+ problems across DP, Graphs, and Data Structures.',
+    description: <><strong>400+ coding problems</strong> across Data Structures and Algorithms, including arrays, strings, recursion, backtracking, dynamic programming, graphs, trees, and other core problem-solving topics.</>,
     icon: <Code size={28} />,
   },
   {
-    title: 'Open Source Contributor',
-    organization: 'GitHub',
-    description: 'Active contributor to popular projects, improving code quality and features.',
-    icon: <Star size={28} />,
+    title: 'Unity Game Development & VR Workshop - Speaker / Lead',
+    organization: 'Unity',
+    description: 'Certified Unity Associate Game Developer. Led and spoke at a Unity Game Development & VR Workshop, helping participants understand game development and immersive technology concepts.',
+    icon: <Gamepad2 size={28} />,
   },
   {
-    title: 'Full-Stack Developer',
-    organization: 'Portfolio & Open Source',
-    description: 'Designed and developed robust end-to-end web applications.',
-    icon: <Wrench size={28} />,
+    title: 'AWS Cloud Foundation',
+    organization: 'Amazon Web Services',
+    description: 'Earned the AWS Cloud Practitioner certification, demonstrating foundational knowledge of AWS cloud concepts, services, security, and pricing.',
+    icon: <Trophy size={28} />,
   },
 ];
 
@@ -71,7 +71,7 @@ const awards = [
           </h2>
           <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
           <p className="text-slate-400 mt-4 text-lg">
-            Recognition and continuous learning
+            Recognition, certifications, and continuous learning
           </p>
         </m.div>
 

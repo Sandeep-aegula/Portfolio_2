@@ -25,6 +25,13 @@ const getColorFilter = (hexColor) => {
     '#FF6C37': 'invert(55%) sepia(93%) saturate(1378%) hue-rotate(2deg) brightness(119%) contrast(119%)', // Postman orange
     '#F24E1E': 'invert(55%) sepia(93%) saturate(1378%) hue-rotate(2deg) brightness(119%) contrast(119%)', // Figma orange
     '#FF9900': 'invert(85%) sepia(78%) saturate(2476%) hue-rotate(21deg) brightness(118%) contrast(115%)', // AWS orange
+    '#009688': 'invert(48%) sepia(51%) saturate(1014%) hue-rotate(130deg) brightness(91%) contrast(101%)', // FastAPI teal
+    '#7C3AED': 'invert(31%) sepia(95%) saturate(2915%) hue-rotate(255deg) brightness(91%) contrast(95%)', // AI purple
+    '#F97316': 'invert(58%) sepia(91%) saturate(2947%) hue-rotate(359deg) brightness(101%) contrast(98%)', // Automation orange
+    '#111827': 'invert(8%) sepia(13%) saturate(1758%) hue-rotate(186deg) brightness(94%) contrast(92%)', // Ollama dark
+    '#8B5CF6': 'invert(44%) sepia(86%) saturate(3067%) hue-rotate(247deg) brightness(99%) contrast(93%)', // SQLAlchemy purple
+    '#EA580C': 'invert(43%) sepia(96%) saturate(3138%) hue-rotate(359deg) brightness(96%) contrast(96%)', // Puppeteer orange
+    '#FF4B4B': 'invert(46%) sepia(95%) saturate(3167%) hue-rotate(331deg) brightness(101%) contrast(101%)', // Streamlit red
   };
   
   return colorMap[hexColor] || 'invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)';
@@ -39,24 +46,43 @@ function Skills() {
       { name: 'NEXT.JS', level: 90, icon: '/Skills/nextjs.svg', color: '#000000' },
       { name: 'JAVASCRIPT', level: 92, icon: '/Skills/Js.svg', color: '#F7DF1E' },
       { name: 'TYPESCRIPT', level: 88, icon: '/Skills/ts.svg', color: '#3178C6' },
-      { name: 'TAILWIND', level: 95, icon: '/Skills/tailwindcss.svg', color: '#06B6D4' },
+      { name: 'TAILWIND CSS', level: 95, icon: '/Skills/tailwindcss.svg', color: '#06B6D4' },
       { name: 'HTML/CSS', level: 98, icon: '/Skills/HTML.svg', color: '#E34F26' },
     ],
     BACKEND: [
       { name: 'NODE.JS', level: 90, icon: '/Skills/Nodejs.svg', color: '#339933' },
       { name: 'PYTHON', level: 85, icon: '/Skills/python.svg', color: '#3776AB' },
-      { name: 'EXPRESS', level: 88, icon: '/Skills/express-js.svg', color: '#000000' },
+      { name: 'FASTAPI', level: 90, icon: '/Skills/fastapi.svg', color: '#009688' },
+      { name: 'EXPRESS.JS', level: 88, icon: '/Skills/express-js.svg', color: '#000000' },
+      { name: 'REST APIs', level: 92, icon: '/Skills/restapi.svg', color: '#FF6B35' },
+      { name: 'SQL', level: 85, icon: '/Skills/sql.svg', color: '#4479A1' },
+    ],
+    'AI / DATA': [
+      { name: 'LLM INTEGRATION', level: 85, icon: '/Skills/llm.svg', color: '#7C3AED' },
+      { name: 'NATURAL LANGUAGE PROCESSING', level: 80, icon: '/Skills/nlp.svg', color: '#7C3AED' },
+      { name: 'AI WORKFLOW AUTOMATION', level: 85, icon: '/Skills/automation.svg', color: '#F97316' },
+      { name: 'OLLAMA', level: 80, icon: '/Skills/ollama.svg', color: '#111827' },
+      { name: 'PYTHON DATA PROCESSING', level: 85, icon: '/Skills/dataproc.svg', color: '#3776AB' },
+      { name: 'WEB SCRAPING', level: 80, icon: '/Skills/scraping.svg', color: '#FF6B35' },
+    ],
+    DATABASES: [
       { name: 'MYSQL', level: 82, icon: '/Skills/sql.svg', color: '#4479A1' },
       { name: 'MONGODB', level: 85, icon: '/Skills/mongodb.svg', color: '#47A248' },
-      { name: 'REST API', level: 92, icon: '/Skills/restapi.svg', color: '#FF6B35' },
+      { name: 'SQLALCHEMY', level: 80, icon: '/Skills/sqlalchemy.svg', color: '#8B5CF6' },
     ],
-    TOOLS: [
+    'CLOUD / DEVOPS': [
+      { name: 'AWS CLOUD', level: 75, icon: '/Skills/aws.svg', color: '#FF9900' },
+      { name: 'DOCKER', level: 80, icon: '/Skills/Docker.svg', color: '#2496ED' },
       { name: 'GIT', level: 90, icon: '/Skills/git.svg', color: '#F05032' },
       { name: 'GITHUB', level: 88, icon: '/Skills/GitHub.svg', color: '#181717' },
-      { name: 'DOCKER', level: 80, icon: '/Skills/Docker.svg', color: '#2496ED' },
+    ],
+    TOOLS: [
       { name: 'POSTMAN', level: 95, icon: '/Skills/Postman.svg', color: '#FF6C37' },
       { name: 'FIGMA', level: 85, icon: '/Skills/Figma.svg', color: '#FFB6C1' },
-      { name: 'AWS CLOUD', level: 75, icon: '/Skills/aws.svg', color: '#FF6C37' },
+      { name: 'N8N', level: 80, icon: '/Skills/n8n.svg', color: '#EA4B71' },
+      { name: 'PUPPETEER', level: 80, icon: '/Skills/puppeteer.svg', color: '#EA580C' },
+      { name: 'STREAMLIT', level: 80, icon: '/Skills/streamlit.svg', color: '#FF4B4B' },
+      { name: 'UNITY', level: 80, icon: '/Skills/unity.svg', color: '#222C37' },
     ],
   };
 
